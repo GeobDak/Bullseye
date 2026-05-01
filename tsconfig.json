@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "module": "esnext",
+    "target": "es6",
+    "moduleResolution": "bundler",
+    "strict": false,
+    "skipLibCheck": true,
+    "lib": ["dom", "esnext"]
+  }
+}
