@@ -16,20 +16,10 @@ export default function handler(req: Request) {
           width: '1200px',
           height: '500px',
           position: 'relative',
+          backgroundImage: 'url(https://bullseye-gold.vercel.app/base.png)',
+          backgroundSize: 'cover',
         }}
       >
-        {/* 배경 이미지 */}
-        <img
-          src="/base.png"
-          width="1200"
-          height="500"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-          }}
-        />
-
         {/* loc */}
         <div style={{
           position: 'absolute',
