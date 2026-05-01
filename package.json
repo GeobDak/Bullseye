@@ -1,0 +1,7 @@
+{
+  "name": "bullseye",
+  "version": "1.0.0",
+  "dependencies": {
+    "@vercel/og": "^0.6.0"
+  }
+}
