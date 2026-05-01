@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bullseye Overlay</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      position: relative;
+      width: 1200px;
+      height: 500px;
+    }
+    .container img {
+      width: 1200px;
+      height: 500px;
+      display: block;
+    }
+
+    /* ── 텍스트 공통 스타일 ── */
+    .overlay-text {
+      position: absolute;
+      font-family: 'Arial Black', sans-serif;
+      font-weight: 900;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+      pointer-events: none;
+    }
+
+    /* ── 각 파라미터 위치 지정 ── */
+    #loc-text  { top: 40px;  left: 60px;  font-size: 36px; }
+    #time-text { top: 40px;  left: 50%;   font-size: 36px; transform: translateX(-50%); }
+    #stat-text { top: 40px;  right: 60px; font-size: 36px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://github.com/GeobDak/Bullseye/blob/main/public/base.png?raw=true" alt="base">
+    <span class="overlay-text" id="loc-text"></span>
+    <span class="overlay-text" id="time-text"></span>
+    <span class="overlay-text" id="stat-text"></span>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    document.getElementById('loc-text').textContent  = params.get('loc')  ?? '';
+    document.getElementById('time-text').textContent = params.get('time') ?? '';
+    document.getElementById('stat-text').textContent = params.get('stat') ?? '';
+  </script>
+</body>
+</html>
