@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bullseye Overlay</title>
+  <title>Bullseye</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -24,36 +24,60 @@
       display: block;
     }
 
-    /* ── 텍스트 공통 스타일 ── */
-    .overlay-text {
+    /* ── 텍스트 위치 지정 ── */
+    .text-loc {
       position: absolute;
-      font-family: 'Arial Black', sans-serif;
-      font-weight: 900;
+      top: 60px;        /* ← 원하는 위치로 조정 */
+      left: 80px;
       color: white;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
-      pointer-events: none;
+      font-size: 28px;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     }
-
-    /* ── 각 파라미터 위치 지정 ── */
-    #loc-text  { top: 40px;  left: 60px;  font-size: 36px; }
-    #time-text { top: 40px;  left: 50%;   font-size: 36px; transform: translateX(-50%); }
-    #stat-text { top: 40px;  right: 60px; font-size: 36px; }
+    .text-time {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+    .text-stat {
+      position: absolute;
+      top: 60px;
+      right: 80px;
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <img src="https://github.com/GeobDak/Bullseye/blob/main/public/base.png?raw=true" alt="base">
-    <span class="overlay-text" id="loc-text"></span>
-    <span class="overlay-text" id="time-text"></span>
-    <span class="overlay-text" id="stat-text"></span>
+    <div class="text-loc" id="loc"></div>
+    <div class="text-time" id="time"></div>
+    <div class="text-stat" id="stat"></div>
   </div>
 
   <script>
+    // URL에서 파라미터 읽기
     const params = new URLSearchParams(window.location.search);
 
-    document.getElementById('loc-text').textContent  = params.get('loc')  ?? '';
-    document.getElementById('time-text').textContent = params.get('time') ?? '';
-    document.getElementById('stat-text').textContent = params.get('stat') ?? '';
+    const loc  = params.get('loc')  || '';
+    const time = params.get('time') || '';
+    const stat = params.get('stat') || '';
+
+    // 각 요소에 텍스트 삽입
+    document.getElementById('loc').textContent  = loc;
+    document.getElementById('time').textContent = time;
+    document.getElementById('stat').textContent = stat;
   </script>
 </body>
 </html>
